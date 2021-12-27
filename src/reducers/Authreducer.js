@@ -1,5 +1,5 @@
 const initialState = {
-  token: null,
+  token: "vijay",
 };
 
 const Authreducer = (state = initialState, action) => {

@@ -8,6 +8,7 @@ import Myorders from "./components/Myorders";
 import Admin from "./components/Admin";
 import Navbar from "./layouts/Navbar";
 import { Routes, Route } from "react-router-dom";
+import Privateroute from "./routing/Privateroute";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Privateroute child={<Login />} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/products" element={<Products />} />
         <Route path="/order" element={<Order />} />
