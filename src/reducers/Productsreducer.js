@@ -1,8 +1,8 @@
 const initialState = {
-  isLoading: "false",
+  products: [],
 };
 
-const Loaderreducer = (state = initialState, action) => {
+const Productsreducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -11,4 +11,4 @@ const Loaderreducer = (state = initialState, action) => {
   }
 };
 
-export default Loaderreducer;
+export default Productsreducer;
