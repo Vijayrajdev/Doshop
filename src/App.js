@@ -9,6 +9,7 @@ import Admin from "./components/Admin";
 import Navbar from "./layouts/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Privateroute from "./routing/Privateroute";
+import Footer from "./layouts/Footer";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/order" element={<Order />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
