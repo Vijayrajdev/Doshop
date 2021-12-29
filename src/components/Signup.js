@@ -15,10 +15,48 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { Link as lee } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+
+  const handleSignup = () => {
+    console.log({ Email, Password, FirstName, LastName });
+
+    const Users = JSON.parse(localStorage.getItem("users"));
+
+    if (Users) {
+      localStorage.setItem(
+        "users",
+        JSON.stringify([
+          ...Users,
+          {
+            Email,
+            Password,
+            FirstName,
+            LastName,
+          },
+        ])
+      );
+    } else {
+      localStorage.setItem(
+        "users",
+        JSON.stringify([
+          {
+            Email,
+            Password,
+            FirstName,
+            LastName,
+          },
+        ])
+      );
+    }
+  };
 
   return (
     <Flex
@@ -47,24 +85,33 @@ export default function Signup() {
               <Box>
                 <FormControl id="firstName" isRequired>
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    type="text"
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                  <Input
+                    type="text"
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" onChange={(e) => setEmail(e.target.value)} />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? "text" : "password"} />
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <InputRightElement h={"full"}>
                   <Button
                     variant={"ghost"}
@@ -79,6 +126,7 @@ export default function Signup() {
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
+                onClick={handleSignup}
                 loadingText="Submitting"
                 size="lg"
                 bg={"blue.400"}
@@ -92,7 +140,10 @@ export default function Signup() {
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
+                Already a user?{" "}
+                <Link as={lee} to="/login" color={"blue.400"}>
+                  Login
+                </Link>
               </Text>
             </Stack>
           </Stack>

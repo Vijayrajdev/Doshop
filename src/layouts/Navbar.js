@@ -55,7 +55,7 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Link to="/" as={lee}>
+          <Stack as={lee} to="/">
             <Image
               hr
               borderRadius="full"
@@ -63,7 +63,8 @@ export default function Navbar() {
               width={"90px"}
               src="Logo2.svg"
             />
-          </Link>
+          </Stack>
+
           <Flex align={"center"} display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
