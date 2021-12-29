@@ -6,5 +6,4 @@ const initialState = {};
 
 const store = createStore(rootReducer, initialState, composeWithDevTools());
 
-
-export default store
+export default store;

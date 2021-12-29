@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 import { ReactNode } from "react";
+import { Link as lee } from "react-router-dom";
 
 const Testimonial = ({ children }: { children: ReactNode }) => {
   return <Box>{children}</Box>;
@@ -129,6 +130,8 @@ function Home() {
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               <Button
+                as={lee}
+                to="/shop"
                 rounded={"full"}
                 bg={"blue.400"}
                 color={"white"}
@@ -155,7 +158,10 @@ function Home() {
       <Box>
         <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
           <Stack spacing={0} align={"center"}>
-            <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} mb={"2.5"}>
+            <Heading
+              fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+              mb={"2.5"}
+            >
               <Text
                 as={"span"}
                 position={"relative"}
