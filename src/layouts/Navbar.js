@@ -202,11 +202,11 @@ const NAV_ITEMS = [
     to: "/shop",
   },
   {
-    label: "IPhone Cases",
+    label: "Iphone Cases",
     to: "/shop?q=iphone",
   },
   {
-    label: "IWatch Straps",
+    label: "Iwatch Straps",
     to: "/shop?q=watch",
   },
 ];

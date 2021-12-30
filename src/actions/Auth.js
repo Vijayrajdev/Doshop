@@ -1,17 +1,19 @@
 import jwt from "jsonwebtoken";
 
 export const loginUser = (email, password) => {
-  // VERIFY EMAIL AND PASSWORD
+  // Verify mail and password
   // create and sign a JWT
-  if (email === "admin@mail.com" && password === "jay") {
-    const token = jwt.sign({ email }, "SECRET");
+  const Users = JSON.parse(localStorage.getItem("users"));
+  const User = Users.find((u) => u.Email === email);
+  if (User.Email === email && User.Password === password) {
+    const token = jwt.sign({ email: User.Email }, "SECRET");
     return {
       type: "LOGIN_SUCCESS",
       payload: { token },
     };
-  } else
-    return {
-      type: "LOGIN_FAILED",
-      payload: { token: null },
-    };
+  } else window.alert("Incorrect creds");
+  return {
+    type: "LOGIN_FAILED",
+    payload: { token: null },
+  };
 };

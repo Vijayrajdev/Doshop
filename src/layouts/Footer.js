@@ -19,7 +19,7 @@ import { BiMailSend } from "react-icons/bi";
 
 const Logo = (props: any) => {
   return (
-    <Link to="/" as={lee}>
+    <Stack as={lee} to="/">
       <Image
         hr
         borderRadius="full"
@@ -27,7 +27,7 @@ const Logo = (props: any) => {
         width={"100px"}
         src="Logo2.svg"
       />
-    </Link>
+    </Stack>
   );
 };
 
