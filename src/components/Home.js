@@ -141,7 +141,9 @@ function Home() {
               >
                 Shop Now
               </Button>
-              <Button rounded={"full"}>How It Works</Button>
+              <Button as={lee} to="/contact" rounded={"full"}>
+                Contact Us
+              </Button>
             </Stack>
           </Stack>
         </Flex>
